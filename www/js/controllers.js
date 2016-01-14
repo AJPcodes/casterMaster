@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('casterMaster.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -9,48 +9,56 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  //dummy data until loaded from local storage
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+}) //end appCtrl
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+.controller('ListCtrl', function($scope, $timeout) {
+
+
+    var getData = function(){
+       return $timeout(function(){
+           return window.localStorage.getItem('mainData');
+       },3000);
+    };
+
+    getData().then(function(data){
+      console.log(data);
+      $scope.mainData = JSON.parse(data);
+      console.log(data);
+      $scope.selectedList = "Spells";
+      $scope.listData = $scope.mainData[$scope.selectedList];
+      console.log($scope.listData);
+    })
+
+  // console.log($scope.mainData);
+
+  // $scope.selectedItem = angular.fromJson(window.localStorage.getItem("selectedItem"));
+
+  // window.LocalStorage.setItem("mainData", JSON.strigify($scope.mainData));
+  //default Value
+
+// dummy data
+    // window.localStorage.setItem("mainData", JSON.stringify(
+    //   {"Spells": {"Spell1": "Something1",
+    //   "Spell2": "Something Else"},
+    //    "Potions": {"Potions1": "Something1",
+    //   "Potions2": "Something Else"}
+    //   }
+    //   ));
+
+
+  $scope.selectItem = function(itemTitle){
+    window.localStorage.setItem("selectedItem", itemTitle);
+    $scope.selectedItem = itemTitle;
+    console.log(itemTitle);
+    console.log($scope.selectedItem);
+
+  }
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ItemCtrl', function($scope, $stateParams) {
 });
