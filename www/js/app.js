@@ -49,8 +49,18 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
   //       }
   //     }
   //   })
+    .state('app.arcana', {
+      url: '/arcana',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/arcana.html',
+          controller: 'ListCtrl'
+        }
+      }
+    })
+
     .state('app.list', {
-      url: '/list',
+      url: '/:list',
       views: {
         'menuContent': {
           templateUrl: 'templates/list.html',
@@ -59,8 +69,9 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
       }
     })
 
+
     .state('app.item', {
-      url: '/list/:title',
+      url: '/:list/:item',
       views: {
         'menuContent': {
           templateUrl: 'templates/item.html',
@@ -70,5 +81,5 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/list');
+  $urlRouterProvider.otherwise('/app/arcana');
 });

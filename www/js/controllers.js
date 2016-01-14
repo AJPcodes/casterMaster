@@ -10,29 +10,56 @@ angular.module('casterMaster.controllers', [])
   //});
 
   //dummy data until loaded from local storage
+    var getData = function(){
+       return $timeout(function(){
+           return window.localStorage.getItem('mainData');
+       },1000);
+    };
+
+    getData().then(function(data){
+      $scope.mainData = JSON.parse(data);
+    });
+
 
 
 }) //end appCtrl
 
 
 
-.controller('ListCtrl', function($scope, $timeout) {
+.controller('ListCtrl', function($scope, $timeout, $stateParams) {
 
 
     var getData = function(){
        return $timeout(function(){
            return window.localStorage.getItem('mainData');
-       },3000);
+       },1000);
     };
 
     getData().then(function(data){
       console.log(data);
       $scope.mainData = JSON.parse(data);
       console.log(data);
-      $scope.selectedList = "Spells";
+      $scope.selectedList = $stateParams.list;
+      $scope.selectedItem = $stateParams.item;
       $scope.listData = $scope.mainData[$scope.selectedList];
       console.log($scope.listData);
-    })
+    });
+
+    console.log("$stateParams", $stateParams);
+    // var getSelectedItem = function(){
+    //    return $timeout(function(){
+    //        return window.localStorage.getItem('selectedItem');
+    //    },3000);
+    // };
+
+    // getSelectedItem().then(function(data){
+    //   console.log(data);
+    //   $scope.selectedList = JSON.parse(data);
+    //   console.log(data);
+    //   $scope.selectedList = "Spells";
+    //   $scope.listData = $scope.mainData[$scope.selectedList];
+    //   console.log($scope.listData);
+    // });
 
   // console.log($scope.mainData);
 
@@ -57,7 +84,7 @@ angular.module('casterMaster.controllers', [])
     console.log(itemTitle);
     console.log($scope.selectedItem);
 
-  }
+  };
 })
 
 .controller('ItemCtrl', function($scope, $stateParams) {
