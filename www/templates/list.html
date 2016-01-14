@@ -3,7 +3,7 @@
   <ion-content>
 
     <ion-list>
-      <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/list/{{key}}" ng-click="selectItem('{{key}}')">
+      <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/{{selectedList}}/{{key}}" ng-click="selectItem('{{key}}')">
         {{key}}
       </ion-item>
     </ion-list>
