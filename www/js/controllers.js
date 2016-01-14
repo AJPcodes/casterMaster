@@ -32,7 +32,7 @@ angular.module('casterMaster.controllers', [])
     var getData = function(){
        return $timeout(function(){
            return window.localStorage.getItem('mainData');
-       },1000);
+       },100);
     };
 
     getData().then(function(data){

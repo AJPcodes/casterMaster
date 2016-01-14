@@ -49,11 +49,11 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
   //       }
   //     }
   //   })
-    .state('app.arcana', {
-      url: '/arcana',
+    .state('app.home', {
+      url: '/castermaster',
       views: {
         'menuContent': {
-          templateUrl: 'templates/arcana.html',
+          templateUrl: 'templates/castermaster.html',
           controller: 'ListCtrl'
         }
       }
@@ -81,5 +81,5 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/arcana');
+  $urlRouterProvider.otherwise('/app/castermaster');
 });

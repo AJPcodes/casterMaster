@@ -1,5 +1,7 @@
 <ion-view view-title="Your {{selectedList}}">
+
   <ion-content>
+
     <ion-list>
       <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/list/{{key}}" ng-click="selectItem('{{key}}')">
         {{key}}
