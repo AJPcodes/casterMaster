@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">New Item</h1>
+    <button ng-click="closeModal()" class="button button-icon icon ion-arrow-left-b"></button>
+  </ion-header-bar>
+
+  <ion-content>
+    <p>Create a new entry.</p>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Entry Name</span>
+        <input type="text" placeholder="Entry Name" ng-model="newItem.title">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Entry Description</span>
+        <input type="text" placeholder="Entry Description" ng-model="newItem.description">
+      </label>
+      <button ng-click="saveItem()" class="button icon ion-wand">Save this Entry</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

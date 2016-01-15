@@ -1,10 +1,13 @@
 <ion-view view-title="Your {{selectedList}}">
 
   <ion-content>
-
+      <button ng-click="openModal()" class="button button-icon icon ion-compose"></button>
     <ion-list>
-      <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/list/{{key}}" ng-click="selectItem('{{key}}')">
-        {{key}}
+      <ion-item ng-repeat="(key, value) in listData track by key">
+        <h2><a href="#/app/{{selectedList}}/{{key}}">{{key}}</a> <i href="#" ng-click="removeItem('{{key}}')" class="icon ion-close pull-right" style="float: right"></i></h2>
+      </ion-item>
+      <ion-item ng-show="listDataLength == 0">
+        It looks like you need to add some items to this tome...
       </ion-item>
     </ion-list>
   </ion-content>
