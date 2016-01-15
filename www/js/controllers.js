@@ -42,6 +42,7 @@ angular.module('casterMaster.controllers', [])
       $scope.selectedList = $stateParams.list;
       $scope.selectedItem = $stateParams.item;
       $scope.listData = $scope.mainData[$scope.selectedList];
+      $scope.selectedItemEntry = $scope.listData[$scope.selectedItem];
       console.log($scope.listData);
     });
 
