@@ -4,7 +4,7 @@
       <button ng-click="openModal()" class="button button-icon icon ion-compose"></button>
     <ion-list>
       <ion-item ng-repeat="(key, value) in listData track by key">
-        <h2><a href="#/app/{{selectedList}}/{{key}}">{{key}}</a> <i href="#" ng-click="removeItem('{{key}}')" class="icon ion-close pull-right" style="float: right"></i></h2>
+        <h2 class="menu-item"><a href="#/app/{{selectedList}}/{{key}}" class="add-link">{{key}}</a> <i href="#" ng-click="removeItem('{{key}}')" class="icon ion-close pull-right icon-remove" style="float: right"></i></h2>
       </ion-item>
       <ion-item ng-show="listDataLength == 0">
         It looks like you need to add some items to this tome...

@@ -9754,3 +9754,16 @@ a.button {
 
 .menu .scroll-content {
   background-color: #141414; }
+
+a.add-link.ng-binding {
+  display: inline-block;
+  text-decoration: none;
+  width: 92%;
+  padding: 20px 10px; }
+
+.icon-remove {
+  display: inline-block;
+  padding: 20px 10px 20px 0; }
+
+.item {
+  padding: 0; }
