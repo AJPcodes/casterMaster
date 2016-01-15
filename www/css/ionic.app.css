@@ -9735,6 +9735,17 @@ h1.title {
   font-family: 'Aladin', cursive;
   font-size: 1.5em; }
 
+h1.ng-binding {
+  font-family: 'Aguafina Script', cursive;
+  font-size: 3.5em;
+  padding: 20px 0 0 20px;
+  color: #660000;
+  margin-bottom: 20px; }
+
+p.ng-binding {
+  font-family: 'Aladin', cursive;
+  font-size: 1.5em; }
+
 #homeBack {
   background-image: url("http://cdn.shopify.com/s/files/1/0205/2042/products/blackleather_texture_05b86ec6-92f5-40b4-bd0f-3552c004c3f9.jpg");
   background-size: cover; }
@@ -9765,6 +9776,16 @@ h1.title {
 .bar.bar-stable .title {
   color: #fff; }
 
+.bar .title {
+  font-family: 'Aladin', cursive;
+  text-transform: uppercase;
+  font-size: 1.5em; }
+
+span.back-text {
+  font-family: 'Aladin', cursive;
+  text-transform: uppercase;
+  color: goldenrod; }
+
 .menu .scroll-content {
   background-image: url("http://lh4.ggpht.com/_jFM-Fd8NDFE/S8HKpl-0HVI/AAAAAAAADM8/QPf9O_2Y9zk/s1600/Old%20Paper-1.jpg"); }
 
@@ -9776,35 +9797,53 @@ h1.title {
 
 .item {
   background-color: transparent;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  padding: 0; }
 
 .item:hover,
 .item:active {
   background-color: rgba(255, 255, 255, 0.4); }
+
+.item.item-input:hover,
+.item.item-input:active {
+  background-color: transparent; }
 
 .item.item-complex {
   border: 0; }
 
 .item-complex .item-content {
   padding: 16px;
-  background-color: transparent; }
+  background-color: #000;
+  color: #fff; }
 
 a.item-content {
   color: #000;
   font-family: 'Aguafina Script', cursive;
-  font-size: 2em; }
+  font-size: 2.5em;
+  background-color: #000; }
 
 a.item-content:hover,
 a.item-content:active {
-  text-shadow: 1px 1px 8px #fff; }
+  color: goldenrod;
+  /*   text-shadow: 1px 1px 8px #fff; */ }
 
 a.ng-binding {
   color: #000;
-  font-family: 'Aguafina Script', cursive;
-  font-size: 2em; }
+  font-family: 'Aladin', cursive;
+  font-size: 2em;
+  text-decoration: none; }
+
+a.add-link.ng-binding {
+  display: inline-block;
+  width: 85%;
+  padding: 15px 0 15px 25px; }
 
 .item-complex .item-content {
-  padding-top: 25px; }
+  padding: 35px 25px 25px; }
+
+.icon-remove {
+  display: inline-block;
+  padding: 15px 15px 20px 0; }
 
 .scroll > p {
   padding-left: 20px; }
@@ -9818,6 +9857,24 @@ a.ng-binding {
 .button.button-assertive:active {
   background-color: #330000; }
 
+button.icon.ion-compose {
+  color: #fff;
+  background-color: #000;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 0; }
+
+.ion-close:before {
+  background-color: #000;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 5px;
+  cursor: pointer; }
+
 .bar-stable .button:hover,
 .bar-stable .button:active {
   color: goldenrod; }
@@ -9830,7 +9887,14 @@ input[type="text"] {
   padding: 10px 0;
   font-size: 1.5em; }
 
-.item-input input {
+textarea {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5em; }
+
+.item-input input,
+.item-input textarea {
   width: 95%;
   margin: 10px auto 0; }
 
@@ -9860,3 +9924,16 @@ input:-moz-placeholder {
 
 input:-ms-input-placeholder {
   padding-top: 5px; }
+
+textarea::-webkit-input-placeholder {
+  padding-top: 6%; }
+
+textarea::-moz-placeholder {
+  padding-top: 6%; }
+
+textarea:-moz-placeholder {
+  /* Older versions of Firefox */
+  padding-top: 6%; }
+
+textarea:-ms-input-placeholder {
+  padding-top: 6%; }
