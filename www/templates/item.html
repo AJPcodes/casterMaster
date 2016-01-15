@@ -1,7 +1,12 @@
 <ion-view view-title="entry">
   <ion-content>
+      <h1 ng-hide="editMode">{{selectedItem}}<i ng-click="editItem()" class="icon ion-compose pull-right" style="float: right">Edit</i></h1>
+      <textarea ng-show="editMode" rows="5" ng-model="selectedItem"></textarea>
 
-      <h1>{{selectedItem}}</h1>
-      <p>{{selectedItemEntry}}</p>
+
+      <p ng-hide="editMode">{{selectedItemEntry}}</p>
+
+      <textarea ng-show="editMode" rows="5" ng-model="selectedItemEntry"></textarea>
+      <p ng-show="editMode" ng-click="updateEntry(selectedItem, selectedItemEntry)">Save</p>
   </ion-content>
 </ion-view>
