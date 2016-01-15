@@ -18,6 +18,13 @@ angular.module('casterMaster.controllers', [])
     //get and parse the data
     getData().then(function(data){
       $scope.mainData = JSON.parse(data);
+      if(!$scope.mainData){
+        $scope.mainData =   {"Spells": {"Levitate": "Make an object hover inches above the floor.",
+        "Hilarity jinx": "Force uncontrollable laughter."},
+       "Potions": {"Love potion": "Maybe it's a lust potion? If you care for distinctions.",
+       "Cup-o-tea": "Conveys a general sense of simpathy and understanding to the receiver."}
+       }
+      }
     });
 
     //add new tome object to scope
@@ -98,7 +105,18 @@ angular.module('casterMaster.controllers', [])
     getData().then(function(data){
       $scope.mainData = JSON.parse(data);
 
+
       //getting the data through the app.js state per the list.html-looking for the ":list" variable
+
+      if(!$scope.mainData){
+        $scope.mainData =   {"Spells": {"Levitate": "Make an object hover inches above the floor.",
+        "Hilarity jinx": "Force uncontrollable laughter."},
+       "Potions": {"Love potion": "Maybe it's a lust potion? If you care for distinctions.",
+       "Cup-o-tea": "Conveys a general sense of simpathy and understanding to the receiver."}
+       }
+      }
+      console.log(data);
+
       $scope.selectedList = $stateParams.list;
 
       //getting the data through the app.js state-looking for ":item" which is nested under the ":list"

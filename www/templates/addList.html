@@ -4,13 +4,14 @@
     <button ng-click="closeModal()" class="button button-icon icon ion-arrow-left-b"></button>
   </ion-header-bar>
 
-  <ion-content>
+  <ion-content id="modal">
+    <p>Please enter the name of your tome.</p>
     <div class="list">
       <label class="item item-input item-floating-label">
         <span class="input-label">Please enter the name of your tome.</span>
         <input type="text" placeholder="Tome Title" ng-model="newTome.title">
         </label>
-      <button ng-click="saveTome()" class="button icon ion-wand">  Save New Tome</button>
+      <button ng-click="saveTome()" class="button button-assertive icon ion-wand">  Save New Tome</button>
     </div>
   </ion-content>
 </ion-modal-view>

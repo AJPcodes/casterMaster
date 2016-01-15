@@ -9752,5 +9752,28 @@ a.button {
   background-color: goldenrod;
   border-bottom: 1px solid darkgoldenrod; }
 
-.menu .scroll-content {
+.menu .scroll-content,
+label.item-input {
   background-color: #141414; }
+
+.item.item-complex {
+  border: 0;
+  font-weight: bold; }
+
+a.item-content {
+  background-image: url("http://asukabook.com/images/products/cover-colors/large/lx-brown.jpg");
+  color: #fff; }
+
+.has-header {
+  top: 54px; }
+
+.scroll > p {
+  padding-left: 20px; }
+
+.button.button-assertive {
+  float: right;
+  margin: 10px; }
+
+input[type="text"] {
+  background-color: #fff;
+  border-radius: 5px; }
