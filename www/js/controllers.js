@@ -193,7 +193,22 @@ angular.module('casterMaster.controllers', [])
       getData();
       $scope.closeModal();
 
+
     };
+      /// declare the variable first to be used in the following function
+      $scope.editMode = false;
+
+      /// allows the user to edit data only when the edit button is clicked, then text area pops up to edit data.
+      $scope.editItem = function() {
+        console.log("can we edit?");
+        if ($scope.editMode){
+          $scope.editMode = false;
+        } else {
+          $scope.editMode = true;
+        }
+      }
+
+
 
 
 })//end of list controller
