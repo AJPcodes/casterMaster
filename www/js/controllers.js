@@ -33,8 +33,13 @@ angular.module('casterMaster.controllers', [])
       var newData = $scope.mainData;
       newData = JSON.stringify(newData);
 
+      //clear fields
+      $scope.newTome = {};
+      $scope.newTome.title = "";
+
       //save the data
       window.localStorage.setItem("mainData", newData);
+      $scope.closeModal();
 
     };
 
@@ -87,6 +92,7 @@ angular.module('casterMaster.controllers', [])
       $scope.selectedList = $stateParams.list;
       $scope.selectedItem = $stateParams.item;
       $scope.listData = $scope.mainData[$scope.selectedList];
+      //length used to determine if alternate message is needed
       $scope.listDataLength = Object.keys($scope.listData).length;
       $scope.selectedItemEntry = $scope.listData[$scope.selectedItem];
       console.log($scope.listData);
@@ -128,10 +134,64 @@ angular.module('casterMaster.controllers', [])
   $scope.selectItem = function(itemTitle){
     window.localStorage.setItem("selectedItem", itemTitle);
     $scope.selectedItem = itemTitle;
-    console.log(itemTitle);
-    console.log($scope.selectedItem);
-
   };
+
+      //add Item Modal
+    $ionicModal.fromTemplateUrl('templates/addItem.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+
+        //add new tome object to scope
+    $scope.newItem = {};
+    $scope.newItem.title = "";
+    $scope.newItem.description = "";
+
+
+    $scope.saveItem = function(){
+
+      console.log($scope.newTomeTitle);
+      //add the new Tome title to the main data object
+      $scope.listData[$scope.newItem.title] = $scope.newItem.description;
+      $scope.mainData[$stateParams.list][$scope.newItem.title] = $scope.newItem.description;
+
+      //clear data fields
+      $scope.newItem.title = "";
+      $scope.newItem.description = "";
+      //parse the updated data to be saved
+      var newData = $scope.mainData;
+      newData = JSON.stringify(newData);
+
+      //save the data
+      window.localStorage.setItem("mainData", newData);
+
+      getData();
+      $scope.closeModal();
+
+    };
+
+
 })
 
 .controller('ItemCtrl', function($scope, $stateParams) {

@@ -1,7 +1,7 @@
 <ion-view view-title="Your {{selectedList}}">
 
   <ion-content>
-
+      <button ng-click="openModal()" class="button button-icon icon ion-compose"></button>
     <ion-list>
       <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/{{selectedList}}/{{key}}" ng-click="selectItem('{{key}}')">
         {{key}}
