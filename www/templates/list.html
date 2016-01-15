@@ -6,6 +6,9 @@
       <ion-item ng-repeat="(key, value) in listData track by key" href="#/app/{{selectedList}}/{{key}}" ng-click="selectItem('{{key}}')">
         {{key}}
       </ion-item>
+      <ion-item ng-show="listDataLength == 0">
+        It looks like you need to add some items to this tome...
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
