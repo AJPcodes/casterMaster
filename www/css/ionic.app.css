@@ -9735,8 +9735,12 @@ h1.title {
   font-family: 'Aladin', cursive;
   font-size: 1.5em; }
 
-.pane {
+#homeBack {
   background-image: url("http://cdn.shopify.com/s/files/1/0205/2042/products/blackleather_texture_05b86ec6-92f5-40b4-bd0f-3552c004c3f9.jpg");
+  background-size: cover; }
+
+.pane {
+  background-image: url("http://lh4.ggpht.com/_jFM-Fd8NDFE/S8HKpl-0HVI/AAAAAAAADM8/QPf9O_2Y9zk/s1600/Old%20Paper-1.jpg");
   background-size: cover; }
 
 #homeTitle {
