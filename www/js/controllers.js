@@ -24,6 +24,18 @@ angular.module('casterMaster.controllers', [])
     $scope.newTome = {};
     $scope.newTome.title = "";
 
+    $scope.removeList = function(listName){
+      console.log(listName);
+      delete $scope.mainData[listName];
+
+      //save changes to local storage
+      var newData = $scope.mainData;
+      newData = JSON.stringify(newData);
+      window.localStorage.setItem("mainData", newData);
+
+
+    };
+
     $scope.saveTome = function(){
       console.log($scope.newTomeTitle);
       //add the new Tome title to the main data object
@@ -76,7 +88,7 @@ angular.module('casterMaster.controllers', [])
 
 
 
-.controller('ListCtrl', function($scope, $timeout, $stateParams, $ionicModal) {
+.controller('ListCtrl', function($scope, $timeout, $stateParams, $ionicModal, $state) {
 
 
     var getData = function(){
@@ -131,10 +143,10 @@ angular.module('casterMaster.controllers', [])
     //   ));
 
 
-  $scope.selectItem = function(itemTitle){
-    window.localStorage.setItem("selectedItem", itemTitle);
-    $scope.selectedItem = itemTitle;
-  };
+  // $scope.selectItem = function(itemTitle){
+  //   window.localStorage.setItem("selectedItem", itemTitle);
+  //   $scope.selectedItem = itemTitle;
+  // };
 
       //add Item Modal
     $ionicModal.fromTemplateUrl('templates/addItem.html', {
@@ -167,6 +179,17 @@ angular.module('casterMaster.controllers', [])
     $scope.newItem = {};
     $scope.newItem.title = "";
     $scope.newItem.description = "";
+
+    $scope.removeItem = function(itemName){
+      delete $scope.mainData[$scope.selectedList][itemName];
+      delete $scope.listData[itemName];
+      //save changes to local storage
+      var newData = $scope.mainData;
+      newData = JSON.stringify(newData);
+      window.localStorage.setItem("mainData", newData);
+      $state.go('app/' + $scope.selectedList);
+
+    };
 
 
     $scope.saveItem = function(){

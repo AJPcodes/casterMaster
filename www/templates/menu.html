@@ -23,8 +23,8 @@
           Caster Master
         </ion-item>
 
-        <ion-item menu-close ng-repeat="(listName, value) in mainData" href="#/app/{{listName}}">
-          {{listName}}
+        <ion-item menu-close ng-repeat="(listName, value) in mainData">
+          <h2><a href="#/app/{{listName}}">{{listName}}</a> <a href="#/app/castermaster"><i ng-click="removeList('{{listName}}')" class="icon ion-close pull-right" style="float: right"></i></a></h2>
         </ion-item>
 
       </ion-list>
