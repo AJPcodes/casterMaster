@@ -15,13 +15,16 @@
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Arcana</h1>
-      <button class="button button-icon icon ion-wand"></button>
+      <button ng-click="openModal()" class="button button-icon icon ion-compose"></button>
     </ion-header-bar>
     <ion-content>
       <ion-list>
+        <ion-item menu-close href="#/app/castermaster">
+          Caster Master
+        </ion-item>
 
-        <ion-item menu-close ng-repeat="(listName, value) in mainData" href="#/app/{{listName}}">
-          {{listName}}
+        <ion-item menu-close ng-repeat="(listName, value) in mainData">
+          <h2><a href="#/app/{{listName}}">{{listName}}</a> <a href="#/app/castermaster"><i ng-click="removeList('{{listName}}')" class="icon ion-close pull-right" style="float: right"></i></a></h2>
         </ion-item>
 
       </ion-list>
