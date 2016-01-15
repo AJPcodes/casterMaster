@@ -197,6 +197,23 @@ angular.module('casterMaster.controllers', [])
     };
       /// declare the variable first to be used in the following function
       $scope.editMode = false;
+      $scope.updateEntry = function(entryTitle, entryDescription) {
+        console.log(entryTitle);
+        console.log("called update entry");
+
+        /// deleting data then saving changes user makes
+        delete $scope.mainData[$scope.selectedList][$stateParams.item];
+        $scope.mainData[$scope.selectedList][entryTitle] = entryDescription;
+
+      //parse the updated data to be saved
+      var newData = $scope.mainData;
+      newData = JSON.stringify(newData);
+
+      //save the data
+      window.localStorage.setItem("mainData", newData);
+      $scope.editMode = false;
+      }
+
 
       /// allows the user to edit data only when the edit button is clicked, then text area pops up to edit data.
       $scope.editItem = function() {

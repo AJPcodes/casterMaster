@@ -60,6 +60,7 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
     })
 
     .state('app.list', {
+      cache: false,
       url: '/:list',
       views: {
         'menuContent': {
@@ -71,6 +72,7 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
 
     //the ":" sets a variable to be used
     .state('app.item', {
+      cache: false,
       url: '/:list/:item',
       views: {
         'menuContent': {
