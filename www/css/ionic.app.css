@@ -9838,21 +9838,6 @@ a.add-link.ng-binding {
   width: 85%;
   padding: 15px 0 15px 25px; }
 
-/* a.add-link.ng-binding {
-display: inline-block;
-text-decoration: none;
-width: 85%;
-padding: 20px 10px;
-}
-
-.icon-remove {
- display: inline-block;
- padding: 20px 10px 20px 0;
-}
-
-.item {
- padding: 0;
-} */
 .item-complex .item-content {
   padding: 35px 25px 25px; }
 
@@ -9902,7 +9887,14 @@ input[type="text"] {
   padding: 10px 0;
   font-size: 1.5em; }
 
-.item-input input {
+textarea {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5em; }
+
+.item-input input,
+.item-input textarea {
   width: 95%;
   margin: 10px auto 0; }
 
@@ -9932,3 +9924,16 @@ input:-moz-placeholder {
 
 input:-ms-input-placeholder {
   padding-top: 5px; }
+
+textarea::-webkit-input-placeholder {
+  padding-top: 6%; }
+
+textarea::-moz-placeholder {
+  padding-top: 6%; }
+
+textarea:-moz-placeholder {
+  /* Older versions of Firefox */
+  padding-top: 6%; }
+
+textarea:-ms-input-placeholder {
+  padding-top: 6%; }

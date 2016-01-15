@@ -5,18 +5,17 @@
   </ion-header-bar>
 
   <ion-content>
-    <p>Create a new entry.</p>
     <div class="list">
       <label class="item item-input item-floating-label">
-        <span class="input-label">Entry Name</span>
+        <span class="input-label">Please Name Your Item</span>
         <input type="text" placeholder="Entry Name" ng-model="newItem.title">
       </label>
 
       <label class="item item-input item-floating-label">
-        <span class="input-label">Entry Description</span>
+        <span class="input-label">Item Description</span>
         <textarea rows="5" placeholder="Entry Description" ng-model="newItem.description"></textarea>
       </label>
-      <button ng-click="saveItem()" class="button icon ion-wand">Save this Entry</button>
+      <button ng-click="saveItem()" class="button icon button-assertive ion-wand">Save this Item</button>
     </div>
   </ion-content>
 </ion-modal-view>
