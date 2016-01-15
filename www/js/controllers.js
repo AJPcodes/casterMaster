@@ -9,13 +9,13 @@ angular.module('casterMaster.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  //dummy data until loaded from local storage
+  //getting data from local storage, with a delay, delay helps with asynchronous part
     var getData = function(){
        return $timeout(function(){
            return window.localStorage.getItem('mainData');
        },1000);
     };
-
+    //get and parse the data
     getData().then(function(data){
       $scope.mainData = JSON.parse(data);
     });
@@ -24,6 +24,7 @@ angular.module('casterMaster.controllers', [])
     $scope.newTome = {};
     $scope.newTome.title = "";
 
+    //removes the data and all contents from the list
     $scope.removeList = function(listName){
       console.log(listName);
       delete $scope.mainData[listName];
@@ -33,7 +34,6 @@ angular.module('casterMaster.controllers', [])
       newData = JSON.stringify(newData);
       window.localStorage.setItem("mainData", newData);
 
-
     };
 
     $scope.saveTome = function(){
@@ -41,21 +41,21 @@ angular.module('casterMaster.controllers', [])
       //add the new Tome title to the main data object
       $scope.mainData[$scope.newTome.title] = {};
 
-      //parse the updated data to be saved
+      //parse (stringifying) the updated data to be saved
       var newData = $scope.mainData;
       newData = JSON.stringify(newData);
 
-      //clear fields
+      //save the data to the local storage
+      window.localStorage.setItem("mainData", newData);
+
+      //clear fields so user can return to add list without having to clear the field
       $scope.newTome = {};
       $scope.newTome.title = "";
-
-      //save the data
-      window.localStorage.setItem("mainData", newData);
       $scope.closeModal();
 
     };
 
-
+    /// this code is pulled from ionic docs, just put your correct template url
     //add List Modal
     $ionicModal.fromTemplateUrl('templates/addList.html', {
       scope: $scope,
@@ -86,67 +86,31 @@ angular.module('casterMaster.controllers', [])
 
 }) //end appCtrl
 
-
-
 .controller('ListCtrl', function($scope, $timeout, $stateParams, $ionicModal, $state) {
 
-
+    //getting data from local storage, with a delay
     var getData = function(){
        return $timeout(function(){
            return window.localStorage.getItem('mainData');
        },100);
     };
-
+    //get data and parse (stringify) so data can be stored in local storage
     getData().then(function(data){
-      console.log(data);
       $scope.mainData = JSON.parse(data);
-      console.log(data);
+
+      //getting the data through the app.js state per the list.html-looking for the ":list" variable
       $scope.selectedList = $stateParams.list;
+
+      //getting the data through the app.js state-looking for ":item" which is nested under the ":list"
       $scope.selectedItem = $stateParams.item;
+
+      //look at main data grab the "key" then saving to listData so it can be used to display all items in the list
       $scope.listData = $scope.mainData[$scope.selectedList];
-      //length used to determine if alternate message is needed
+
+      //length used to determine if alternate message is needed- uses "ng-show"
       $scope.listDataLength = Object.keys($scope.listData).length;
       $scope.selectedItemEntry = $scope.listData[$scope.selectedItem];
-      console.log($scope.listData);
     });
-
-    console.log("$stateParams", $stateParams);
-    // var getSelectedItem = function(){
-    //    return $timeout(function(){
-    //        return window.localStorage.getItem('selectedItem');
-    //    },3000);
-    // };
-
-    // getSelectedItem().then(function(data){
-    //   console.log(data);
-    //   $scope.selectedList = JSON.parse(data);
-    //   console.log(data);
-    //   $scope.selectedList = "Spells";
-    //   $scope.listData = $scope.mainData[$scope.selectedList];
-    //   console.log($scope.listData);
-    // });
-
-  // console.log($scope.mainData);
-
-  // $scope.selectedItem = angular.fromJson(window.localStorage.getItem("selectedItem"));
-
-  // window.LocalStorage.setItem("mainData", JSON.strigify($scope.mainData));
-  //default Value
-
-// dummy data
-    // window.localStorage.setItem("mainData", JSON.stringify(
-    //   {"Spells": {"Spell1": "Something1",
-    //   "Spell2": "Something Else"},
-    //    "Potions": {"Potions1": "Something1",
-    //   "Potions2": "Something Else"}
-    //   }
-    //   ));
-
-
-  // $scope.selectItem = function(itemTitle){
-  //   window.localStorage.setItem("selectedItem", itemTitle);
-  //   $scope.selectedItem = itemTitle;
-  // };
 
       //add Item Modal
     $ionicModal.fromTemplateUrl('templates/addItem.html', {
@@ -191,10 +155,8 @@ angular.module('casterMaster.controllers', [])
 
     };
 
-
     $scope.saveItem = function(){
 
-      console.log($scope.newTomeTitle);
       //add the new Tome title to the main data object
       $scope.listData[$scope.newItem.title] = $scope.newItem.description;
       $scope.mainData[$stateParams.list][$scope.newItem.title] = $scope.newItem.description;
@@ -216,7 +178,4 @@ angular.module('casterMaster.controllers', [])
     };
 
 
-})
-
-.controller('ItemCtrl', function($scope, $stateParams) {
-});
+})//end of list controller

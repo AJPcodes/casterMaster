@@ -69,7 +69,7 @@ angular.module('casterMaster', ['ionic', 'casterMaster.controllers'])
       }
     })
 
-
+    //the ":" sets a variable to be used
     .state('app.item', {
       url: '/:list/:item',
       views: {
