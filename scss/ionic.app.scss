@@ -211,8 +211,9 @@ input[type="text"] {
 textarea {
   border-radius: 5px;
   text-align: center;
-  padding: 10px 0;
+  padding: 20px;
   font-size: 1.5em;
+  line-height: 1.3em;
 }
 
 .item-input input,
@@ -251,16 +252,16 @@ input:-ms-input-placeholder {
 }
 
 textarea::-webkit-input-placeholder {
-  padding-top: 6%;
+  padding-top: 13%;
 }
 textarea::-moz-placeholder {
-  padding-top: 6%;
+  padding-top: 13%;
 }
 textarea:-moz-placeholder {   /* Older versions of Firefox */
-  padding-top: 6%;
+  padding-top: 13%;
 }
 textarea:-ms-input-placeholder {
-  padding-top: 6%;
+  padding-top: 13%;
 }
 
 
