@@ -209,6 +209,4 @@ angular.module('casterMaster.controllers', [])
       }
 
 
-
-
 })//end of list controller
