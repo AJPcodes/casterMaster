@@ -198,6 +198,7 @@ angular.module('casterMaster.controllers', [])
       //add the new Tome title to the main data object
       $scope.listData[$scope.newItem.title] = $scope.newItem.description;
       $scope.mainData[$stateParams.list][$scope.newItem.title] = $scope.newItem.description;
+      $scope.listDataLength = Object.keys($scope.listData).length;
 
       //clear data fields
       $scope.newItem.title = "";
