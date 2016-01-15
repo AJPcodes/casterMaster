@@ -213,6 +213,7 @@ textarea {
   text-align: center;
   padding: 10px 0;
   font-size: 1.5em;
+  line-height: 1.3em;
 }
 
 .item-input input,
@@ -251,6 +252,7 @@ input:-ms-input-placeholder {
 }
 
 textarea::-webkit-input-placeholder {
+<<<<<<< HEAD
   padding-top: 6%;
 }
 textarea::-moz-placeholder {
@@ -261,6 +263,18 @@ textarea:-moz-placeholder {   /* Older versions of Firefox */
 }
 textarea:-ms-input-placeholder {
   padding-top: 6%;
+=======
+  padding-top: 13%;
+}
+textarea::-moz-placeholder {
+  padding-top: 13%;
+}
+textarea:-moz-placeholder {   /* Older versions of Firefox */
+  padding-top: 13%;
+}
+textarea:-ms-input-placeholder {
+  padding-top: 13%;
+>>>>>>> master
 }
 
 
