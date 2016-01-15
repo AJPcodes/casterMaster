@@ -23,8 +23,17 @@
           Caster Master
         </ion-item>
 
-        <ion-item menu-close ng-repeat="(listName, value) in mainData">
-          <h2><a href="#/app/{{listName}}" class="add-link">{{listName}}</a> <a href="#/app/castermaster"><i ng-click="removeList('{{listName}}')" class="icon ion-close pull-right icon-remove" style="float: right"></i></a></h2>
+
+        <ion-item ng-repeat="(listName, value) in mainData">
+
+          <h2><i ng-click="editListName('{{listName}}')" class="icon ion-wand pull-left" style="float: left"></i><a menu-close href="#/app/{{listName}}">{{listName}}</a> <a href="#/app/castermaster"><i ng-click="removeList('{{listName}}')" class="icon ion-close pull-right" style="float: right"></i></a></h2>
+
+        <div class="item item-input item-floating-label edit" ng-show="'{{listName}}' == listToEdit">
+          <input type="text" placeholder="New Title" ng-model="editTome.title">
+          <i ion-save ng-click="saveNewName('{{listName}}')">Save</i>
+        </div>
+
+
         </ion-item>
 
       </ion-list>
