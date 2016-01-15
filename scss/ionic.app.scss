@@ -21,8 +21,31 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-.pane {
+h1.title {
+  font-family: 'Aladin', cursive;
+  font-size: 1.5em;
+}
+
+h1.ng-binding {
+  font-family: 'Aguafina Script', cursive;
+  font-size: 3.5em;
+  padding: 20px 0 0 20px;
+  color: #660000;
+  margin-bottom: 20px;
+}
+
+p.ng-binding {
+  font-family: 'Aladin', cursive;
+  font-size: 1.5em;
+}
+
+#homeBack {
   background-image: url("http://cdn.shopify.com/s/files/1/0205/2042/products/blackleather_texture_05b86ec6-92f5-40b4-bd0f-3552c004c3f9.jpg");
+  background-size: cover;
+}
+
+.pane {
+  background-image: url("http://lh4.ggpht.com/_jFM-Fd8NDFE/S8HKpl-0HVI/AAAAAAAADM8/QPf9O_2Y9zk/s1600/Old%20Paper-1.jpg");
   background-size: cover;
 }
 
@@ -41,28 +64,187 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .bar.bar-stable.bar-header {
-  background-color: goldenrod;
-  border-bottom: 1px solid darkgoldenrod;
+  background-color: #660000;
+  border-bottom: 1px solid #330000;
+}
+
+.bar-stable .button.button-clear,
+.bar-stable .button,
+.bar.bar-stable .title {
+  color: #fff;
+}
+
+.bar .title {
+  font-family: 'Aladin', cursive;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+span.back-text {
+  font-family: 'Aladin', cursive;
+  text-transform: uppercase;
+  color: goldenrod;
 }
 
 .menu .scroll-content {
-  background-color: #141414;
+  background-image: url("http://lh4.ggpht.com/_jFM-Fd8NDFE/S8HKpl-0HVI/AAAAAAAADM8/QPf9O_2Y9zk/s1600/Old%20Paper-1.jpg");
 }
 
+//  CALEB CSS
 a.add-link.ng-binding {
 display: inline-block;
 text-decoration: none;
-width: 92%;
+width: 85%;
 padding: 20px 10px;
 }
 
 .icon-remove {
   display: inline-block;
-  // width: 8%;
-  // height: 100%;
   padding: 20px 10px 20px 0;
 }
 
 .item {
-  padding: 0 ;
+  padding: 0;
+}
+
+// END CALEB HERE
+.modal {
+  background-image: url("http://lh4.ggpht.com/_jFM-Fd8NDFE/S8HKpl-0HVI/AAAAAAAADM8/QPf9O_2Y9zk/s1600/Old%20Paper-1.jpg");
+}
+
+.list {
+  text-align: center;
+}
+
+.item {
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+.item:hover,
+.item:active {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.item.item-input:hover,
+.item.item-input:active {
+  background-color: transparent;
+}
+
+.item.item-complex {
+  border: 0;
+}
+
+.item-complex .item-content {
+  padding: 16px;
+  background-color: #000;
+  color: #fff;
+}
+
+a.item-content {
+  color: #000;
+  font-family: 'Aguafina Script', cursive;
+  font-size: 2.5em;
+  background-color: #000;
+}
+
+a.item-content:hover,
+a.item-content:active {
+  color: goldenrod;
+/*   text-shadow: 1px 1px 8px #fff; */
+}
+
+a.ng-binding {
+  color: #000;
+  font-family: 'Aladin', cursive;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.item-complex .item-content {
+  padding: 35px 25px 25px;
+}
+
+.scroll > p {
+  padding-left: 20px;
+}
+
+.button.button-assertive {
+  margin: 16px;
+  transition: 1s;
+  background-color: #660000;
+}
+
+.button.button-assertive:hover,
+.button.button-assertive:active {
+  background-color: #330000;
+}
+
+button.icon.ion-compose {
+  color: #fff;
+  background-color: #000;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 0;
+}
+
+.ion-close:before {
+  background-color: #000;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.bar-stable .button:hover,
+.bar-stable .button:active {
+  color: goldenrod;
+}
+
+input[type="text"] {
+  background-color: #fff;
+  border-radius: 5px;
+  height: auto;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5em;
+}
+
+
+.item-input input {
+  width: 95%;
+  margin: 10px auto 0;
+}
+
+label.item-input {
+  border: 0;
+  padding: 25px 16px 5px;
+}
+
+.item-floating-label .input-label {
+  color: #000;
+  padding: 0;
+  position: static;
+  opacity: 1;
+  font-family: 'Aguafina Script', cursive;
+  font-size: 2.5em;
+  padding: 10px 0;
+  display: inline;
+}
+
+input::-webkit-input-placeholder {
+  padding-top: 5px;
+}
+input::-moz-placeholder {
+  padding-top: 5px;
+}
+input:-moz-placeholder {   /* Older versions of Firefox */
+  padding-top: 5px;
+}
+input:-ms-input-placeholder {
+  padding-top: 5px;
 }
