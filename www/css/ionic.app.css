@@ -9890,14 +9890,9 @@ input[type="text"] {
 textarea {
   border-radius: 5px;
   text-align: center;
-<<<<<<< HEAD
   padding: 10px 0;
-  font-size: 1.5em; }
-=======
-  padding: 20px;
   font-size: 1.5em;
   line-height: 1.3em; }
->>>>>>> master
 
 .item-input input,
 .item-input textarea {
@@ -9932,19 +9927,6 @@ input:-ms-input-placeholder {
   padding-top: 5px; }
 
 textarea::-webkit-input-placeholder {
-<<<<<<< HEAD
-  padding-top: 6%; }
-
-textarea::-moz-placeholder {
-  padding-top: 6%; }
-
-textarea:-moz-placeholder {
-  /* Older versions of Firefox */
-  padding-top: 6%; }
-
-textarea:-ms-input-placeholder {
-  padding-top: 6%; }
-=======
   padding-top: 13%; }
 
 textarea::-moz-placeholder {
@@ -9956,4 +9938,15 @@ textarea:-moz-placeholder {
 
 textarea:-ms-input-placeholder {
   padding-top: 13%; }
->>>>>>> master
+
+div.edit h2 {
+  padding: 5px;
+  font-size: 1.5em; }
+
+div.list.list-inset.itemDescription {
+  rows: 10;
+  height: 60%; }
+
+div.list.list-inset textarea {
+  rows: 10;
+  margin: 10%; }
