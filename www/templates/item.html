@@ -1,12 +1,20 @@
 <ion-view view-title="entry">
   <ion-content>
-      <h1 ng-hide="editMode">{{selectedItem}}<i ng-click="editItem()" class="icon ion-compose pull-right" style="float: right">Edit</i></h1>
-      <textarea ng-show="editMode" rows="5" ng-model="selectedItem"></textarea>
+      <h1 ng-hide="editMode">{{selectedItem}}<i ng-click="editItem()" class="itemTitle icon ion-compose pull-right" style="float: right; padding-right: 20px">Edit</i></h1>
 
+        <button ng-show="editMode" ng-click="updateEntry(selectedItem, selectedItemEntry)" class="button icon button-assertive ion-wand">Save</button>
+
+      <div ng-show="editMode" class="list list-inset">
+        <label class="item item-input">
+          <input  ng-model="selectedItem" type="text">
+        </label>
+      </div>
 
       <p ng-hide="editMode">{{selectedItemEntry}}</p>
 
-      <textarea ng-show="editMode" rows="5" ng-model="selectedItemEntry"></textarea>
-      <p ng-show="editMode" ng-click="updateEntry(selectedItem, selectedItemEntry)">Save</p>
-  </ion-content>
+      <div ng-show="editMode" class="list list-inset itemDescription">
+          <textarea  ng-model="selectedItemEntry">
+      </div>
+
+       </ion-content>
 </ion-view>

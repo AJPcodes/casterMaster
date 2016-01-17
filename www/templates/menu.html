@@ -30,7 +30,9 @@
 
         <div class="item item-input item-floating-label edit" ng-show="'{{listName}}' == listToEdit">
           <input type="text" placeholder="New Title" ng-model="editTome.title">
-          <i ion-save ng-click="saveNewName('{{listName}}')">Save</i>
+          <h2 ng-click="saveNewName('{{listName}}')">Save
+          <i class="icon ion-wand"></i>
+          </h2>
         </div>
 
 
